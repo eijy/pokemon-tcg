@@ -1,0 +1,46 @@
+<div class="details" *ngIf="card">
+  <img [src]="card.imageUrlHiRes" alt="card.name" />
+  <div class="pokemon-data">
+    <div class="name">
+      <span>nome: </span>
+      <span>{{ card.name }}</span>
+    </div>
+    <div class="id">
+      <span>id: </span>
+      <span>{{ card.id }}</span>
+    </div>
+    <div class="type">
+      <span>tipo: </span>
+      <span>{{ card.types }}</span>
+    </div>
+    <div class="attack">
+      <span>ataques: </span>
+      <div *ngFor="let attack of card.attacks">
+        <div>
+          <span>custo: </span>
+          <span *ngFor="let cost of attack.cost">{{ cost }}</span>
+        </div>
+        <div>
+          <span>nome: </span>
+          <span>{{ attack.name }}</span>
+        </div>
+        <div>
+          <span>dano: </span>
+          <span>{{ attack.damage }}</span>
+        </div>
+        <div>
+          <span>descrição: </span>
+          <span>{{ attack.description }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="resistence">
+      <span>resistência: </span>
+      <span *ngFor="let res of card.resistances">{{ res.type }}</span>
+    </div>
+    <div class="weakness">
+      <span>fraquezas: </span>
+      <span *ngFor="let weak of card.weaknesses">{{ weak.type }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="card" *ngIf="card.nationalPokedexNumber">
+  <img
+    class="pokemon-img"
+    [src]="card.imageUrl"
+    [alt]="name"
+    (click)="goToDetails(card)"
+  />
+  <div class="name">
+    <span>nome:</span>
+    <span> {{ card.name }}</span>
+  </div>
+  <div class="id">
+    <span>id:</span>
+    <span> {{ card.id }}</span>
+  </div>
+  <div class="types">
+    <span>tipo:</span>
+    <span *ngFor="let type of card.types"> {{ type }}</span>
+  </div>
+</div>
