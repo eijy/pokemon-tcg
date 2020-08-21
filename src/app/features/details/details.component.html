@@ -1,46 +1,54 @@
 <div class="details" *ngIf="card">
-  <img [src]="card.imageUrlHiRes" alt="card.name" />
-  <div class="pokemon-data">
-    <div class="name">
-      <span>nome: </span>
-      <span>{{ card.name }}</span>
-    </div>
-    <div class="id">
-      <span>id: </span>
-      <span>{{ card.id }}</span>
-    </div>
-    <div class="type">
-      <span>tipo: </span>
-      <span>{{ card.types }}</span>
-    </div>
-    <div class="attack">
-      <span>ataques: </span>
-      <div *ngFor="let attack of card.attacks">
-        <div>
-          <span>custo: </span>
-          <span *ngFor="let cost of attack.cost">{{ cost }}</span>
-        </div>
-        <div>
-          <span>nome: </span>
-          <span>{{ attack.name }}</span>
-        </div>
-        <div>
-          <span>dano: </span>
-          <span>{{ attack.damage }}</span>
-        </div>
-        <div>
-          <span>descrição: </span>
-          <span>{{ attack.description }}</span>
-        </div>
+  <h1 class="card-name">{{ card.name }}</h1>
+  <div class="content">
+    <img class="pokemon-img-high" [src]="card.imageUrlHiRes" alt="card.name" />
+    <div class="pokemon-data">
+      <div class="id">
+        <span class="legend">Id: </span>
+        <span>{{ card.id }}</span>
       </div>
-    </div>
-    <div class="resistence">
-      <span>resistência: </span>
-      <span *ngFor="let res of card.resistances">{{ res.type }}</span>
-    </div>
-    <div class="weakness">
-      <span>fraquezas: </span>
-      <span *ngFor="let weak of card.weaknesses">{{ weak.type }}</span>
+      <div class="type">
+        <span class="legend">Tipo: </span>
+        <span>{{ card.types }}</span>
+      </div>
+      <div class="attack">
+        <span class="legend">Ataques: </span>
+        <ul *ngFor="let attack of card.attacks">
+          <li>
+            <span class="legend">Nome: </span>
+            <span>{{ attack.name }}</span>
+          </li>
+          <li>
+            <span class="legend">Custo: </span>
+            <span *ngFor="let cost of attack.cost">{{ cost }}</span>
+          </li>
+          <li>
+            <span class="legend">Dano: </span>
+            <span>{{ attack.damage }}</span>
+          </li>
+          <li>
+            <span class="legend">Descrição: </span>
+            <span>{{ attack.text }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="resistence">
+        <span class="legend">Resistência: </span>
+        <img
+          *ngFor="let res of card.resistances"
+          [src]="'assets/' + res.type + '.png'"
+          alt=""
+        />
+        <span *ngIf="!card.resistances">Nenhuma</span>
+      </div>
+      <div class="weakness">
+        <span class="legend">Fraquezas: </span>
+        <img
+          *ngFor="let weak of card.weaknesses"
+          [src]="'assets/' + weak.type + '.png'"
+          alt=""
+        />
+      </div>
     </div>
   </div>
 </div>

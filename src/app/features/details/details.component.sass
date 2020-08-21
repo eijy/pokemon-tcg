@@ -1,5 +1,24 @@
 .details
-    display: flex
-    flex-direction: row
-    img
-        width: 250px
+    padding: 0 18px
+    box-sizing: border-box
+    .content
+        display: flex
+        flex-direction: column
+        .pokemon-img-high
+            width: 250px
+            margin-bottom: 8px
+        .pokemon-data
+            .id,
+            .type,
+            .resistence
+                margin-bottom: 12px
+            .legend
+                font-size: 1.1em
+                font-weight: bold
+                letter-spacing: 1px
+@media screen and ( min-width: 1024px )
+    .details
+        .content
+            flex-direction: row
+            .pokemon-img-high
+                margin-right: 12px

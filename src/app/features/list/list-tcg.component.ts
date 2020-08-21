@@ -31,6 +31,7 @@ interface cards {
 })
 export class ListTcgComponent implements OnInit {
   list: cards[];
+  listAux: cards[];
   constructor(private pokemonServices: PokemonTcgService) {}
 
   ngOnInit() {
@@ -45,10 +46,16 @@ export class ListTcgComponent implements OnInit {
           }
           return 0;
         });
+        this.listAux = [...this.list];
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+  onChange(event) {
+    this.listAux = this.list.filter((item) => {
+      return item.name.toLowerCase().includes(event.toLowerCase()) && item;
+    });
   }
 }
