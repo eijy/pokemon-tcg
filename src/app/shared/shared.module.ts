@@ -3,11 +3,19 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 
 //components
-import { PokemonContainerComponent, PokemonCardComponent } from "./components";
+import {
+  PokemonContainerComponent,
+  PokemonCardComponent,
+  PokemonSearchComponent,
+} from "./components";
 
 @NgModule({
-  declarations: [PokemonContainerComponent, PokemonCardComponent],
+  declarations: [
+    PokemonContainerComponent,
+    PokemonCardComponent,
+    PokemonSearchComponent,
+  ],
   imports: [CommonModule, HttpClientModule],
-  exports: [PokemonContainerComponent],
+  exports: [PokemonContainerComponent, PokemonSearchComponent],
 })
 export class SharedModule {}

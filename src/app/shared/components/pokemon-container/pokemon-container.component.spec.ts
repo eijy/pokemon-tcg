@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PokemonContainerComponent } from './pokemon-container.component';
+import { PokemonContainerComponent } from "./pokemon-container.component";
+import { PokemonCardComponent } from "../pokemon-card";
 
-describe('PokemonContainerComponent', () => {
+describe("PokemonContainerComponent", () => {
   let component: PokemonContainerComponent;
   let fixture: ComponentFixture<PokemonContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PokemonContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [PokemonContainerComponent, PokemonCardComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('PokemonContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

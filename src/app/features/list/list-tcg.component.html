@@ -1,11 +1,5 @@
 <div class="list">
-  <div class="search">
-    <input
-      class="search-input"
-      placeholder="Buscar"
-      type="text"
-      (input)="onChange($event.target.value)"
-    />
-  </div>
+  <app-pokemon-search (onChangeHandler)="onChange($event)"></app-pokemon-search>
+
   <app-pokemon-container [result]="listAux"></app-pokemon-container>
 </div>

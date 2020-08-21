@@ -9,27 +9,35 @@
       </div>
       <div class="type">
         <span class="legend">Tipo: </span>
-        <span>{{ card.types }}</span>
+        <img
+          *ngFor="let type of card.types"
+          [src]="'assets/' + type + '.png'"
+          alt=""
+        />
       </div>
       <div class="attack">
         <span class="legend">Ataques: </span>
         <ul *ngFor="let attack of card.attacks">
-          <li>
+          <ol>
             <span class="legend">Nome: </span>
             <span>{{ attack.name }}</span>
-          </li>
-          <li>
+          </ol>
+          <ol>
             <span class="legend">Custo: </span>
-            <span *ngFor="let cost of attack.cost">{{ cost }}</span>
-          </li>
-          <li>
+            <img
+              *ngFor="let cost of attack.cost"
+              [src]="'assets/' + cost + '.png'"
+              alt=""
+            />
+          </ol>
+          <ol>
             <span class="legend">Dano: </span>
             <span>{{ attack.damage }}</span>
-          </li>
-          <li>
+          </ol>
+          <ol>
             <span class="legend">Descrição: </span>
-            <span>{{ attack.text }}</span>
-          </li>
+            <span>{{ attack.text ? attack.text : "Sem descrição" }}</span>
+          </ol>
         </ul>
       </div>
       <div class="resistence">
