@@ -23,21 +23,23 @@ interface cards {
   attacks: Array<object>;
   weakness: Array<object>;
 }
-
+interface IRes {
+  cards: cards[]
+}
 @Component({
   selector: "app-list-tcg",
   templateUrl: "./list-tcg.component.html",
   styleUrls: ["./list-tcg.component.sass"],
 })
 export class ListTcgComponent implements OnInit {
-  list: cards[];
-  listAux: cards[];
+  list: cards[] | undefined;
+  listAux: cards[] | undefined;
   constructor(private pokemonServices: PokemonTcgService) {}
 
   ngOnInit() {
     this.pokemonServices.list().subscribe(
-      (res) => {
-        this.list = res.cards.sort((a, b) => {
+      (res: IRes) => {
+        this.list = res.cards.sort((a:cards, b:cards) => {
           if (a.name < b.name) {
             return -1;
           }
@@ -48,7 +50,7 @@ export class ListTcgComponent implements OnInit {
         });
         this.listAux = [...this.list];
       },
-      (err) => {
+      (err: Object) => {
         console.log(err);
       }
     );

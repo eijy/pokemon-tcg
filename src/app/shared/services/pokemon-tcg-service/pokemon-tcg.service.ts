@@ -10,7 +10,7 @@ export class PokemonTcgService {
   list(): any {
     return this.httpClient.get(`${environment.url}/cards`);
   }
-  getCard(id): any {
+  getCard(id: number): any {
     return this.httpClient.get(`${environment.url}/cards/${id}`);
   }
 }
