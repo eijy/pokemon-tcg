@@ -1,28 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { PokemonTcgService } from "src/app/shared";
+import { cards } from "../../shared/interfaces/cards"
 
-interface cards {
-  id: string;
-  name: string;
-  nationalPokedexNumber: number;
-  imageUrl: string;
-  imageUrlHiRes: string;
-  types: Array<string>;
-  supertype: string;
-  subtype: string;
-  evolvesFrom: string;
-  hp: string;
-  retreatCost: Array<string>;
-  number: string;
-  artist: string;
-  rarity: string;
-  series: string;
-  set: string;
-  setCode: string;
-  attacks: Array<object>;
-  weakness: Array<object>;
-}
 interface card {
   card: cards
 }
@@ -40,8 +20,9 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const id: string = this.route.snapshot.paramMap.get("id") || "";
     this.pokemonServices
-      .getCard(this.route.snapshot.paramMap.get("id"))
+      .getCard(id)
       .subscribe(
         (res: card) => {
           this.card = res.card;

@@ -1,28 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { PokemonTcgService } from "../../shared/services";
-import { Observable } from "rxjs";
 
-interface cards {
-  id: string;
-  name: string;
-  nationalPokedexNumber: number;
-  imageUrl: string;
-  imageUrlHiRes: string;
-  types: Array<string>;
-  supertype: string;
-  subtype: string;
-  evolvesFrom: string;
-  hp: string;
-  retreatCost: Array<string>;
-  number: string;
-  artist: string;
-  rarity: string;
-  series: string;
-  set: string;
-  setCode: string;
-  attacks: Array<object>;
-  weakness: Array<object>;
-}
+// services
+import { PokemonTcgService } from "../../shared/services";
+
+//interfaces
+import { cards } from "../../shared/interfaces/cards"
+
 interface IRes {
   cards: cards[]
 }
@@ -55,8 +38,8 @@ export class ListTcgComponent implements OnInit {
       }
     );
   }
-  onChange(event) {
-    this.listAux = this.list.filter((item) => {
+  onChange(event: string) {
+    this.listAux = this.list?.filter((item) => {
       return item.name.toLowerCase().includes(event.toLowerCase()) && item;
     });
   }

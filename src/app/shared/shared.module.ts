@@ -16,6 +16,6 @@ import {
     PokemonSearchComponent,
   ],
   imports: [CommonModule, HttpClientModule],
-  exports: [PokemonContainerComponent, PokemonSearchComponent],
+  exports: [PokemonContainerComponent,PokemonCardComponent, PokemonSearchComponent],
 })
 export class SharedModule {}
