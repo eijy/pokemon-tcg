@@ -13,8 +13,6 @@ export class PokemonSearchComponent implements OnInit {
   ngOnInit() {}
 
   onChange(changes: Event) {
-    console.log(changes);
-    
     this.onChangeHandler.emit((<HTMLTextAreaElement>changes.target).value);
   }
 }
